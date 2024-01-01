@@ -6,7 +6,7 @@
 
 ## Medium Article
 
-This project is accompanied by a Medium article that explains the implementation of a Todo App UI using Android Compose. You can read the article [here]().
+This project is accompanied by a Medium article that explains the implementation of a Todo App UI using Android Compose. You can read the article [here](https://medium.com/@kenruizinoue/intermediate-android-compose-todo-app-ui-1d808ef7882d).
 
 ## Overview
 
