@@ -6,24 +6,17 @@
 
 ## Medium Article
 
-This project is accompanied by a Medium article that explains the implementation of a Todo App UI using Android Compose. You can read the article [here]().
+This project is accompanied by a comprehensive Medium article that details the process of integrating Room Database into a Todo App using Android Compose. You can read the article here.
 
 ## Overview
 
-TodoDemoApp is an Android application built entirely using Jetpack Compose, focusing on demonstrating the capabilities of Compose in creating dynamic and interactive user interfaces. It showcases best practices in UI design and implementation, catering to both beginners and experienced developers.
+TodoDemoApp is an Android application built with Jetpack Compose and Room Database. It extends beyond basic UI implementation to include dynamic data storage and retrieval, showcasing the full spectrum of creating a functional and interactive Android application. This app is ideal for developers who want to understand how to combine Compose's interactive UI with Room Database's robust data management.
 
-The app utilizes Kotlin's robustness and Compose's flexibility to offer a user-friendly interface. Its design prioritizes adaptability and interactivity, with features like:
+Key aspects of the app include:
 
-- Adaptive Color Scheme and Dynamic Icons: The UI dynamically changes colors and icons based on the Todo item's status, providing clear visual feedback to users.
-- Interactive Elements with Ripple Effects: Enhances the user experience with interactive components that respond elegantly to user interactions.
-- Modularized Composables: The app maintains a clean separation of concerns, with UI elements organized into distinct composables for easier management and scalability.
-
-## Main Components
-
-- Shared Resources: Centralized constants and icons for cohesive design.
-- `TodoItemUi()`: Composable function for rendering individual Todo items with interactive features.
-- `TodoInputBar()`: A combination of TextField and FloatingActionButton for task addition.
-- `TodoItemsContainer()`: A LazyColumn setup to efficiently list and manage Todo items.
+- Integration of Room Database for persistent data storage.
+- Implementation of ViewModel to manage UI-related data in a lifecycle-conscious way.
+- Usage of Kotlin coroutines Flow for efficient and responsive database operations.
 
 ## Getting Started
 

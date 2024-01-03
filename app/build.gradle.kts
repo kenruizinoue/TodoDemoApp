@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    // 1. Kotlin Annotation Processing Tool Plugin
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -51,6 +53,12 @@ android {
 
 dependencies {
 
+    // 2. Room Runtime
+    implementation("androidx.room:room-runtime:2.6.1")
+    // 3. Room KTX
+    implementation("androidx.room:room-ktx:2.6.1")
+    // 4. Room Compiler
+    kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.2")
