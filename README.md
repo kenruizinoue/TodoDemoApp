@@ -6,7 +6,7 @@
 
 ## Medium Article
 
-This project is accompanied by a comprehensive Medium article that details the process of integrating Room Database into a Todo App using Android Compose. You can read the article here.
+This project is accompanied by a comprehensive Medium article that details the process of integrating Room Database into a Todo App using Android Compose. You can read the article [here](https://medium.com/@kenruizinoue/intermediate-android-compose-todo-app-with-room-database-18fd97436c6d).
 
 ## Overview
 
