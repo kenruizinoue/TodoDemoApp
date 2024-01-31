@@ -6,7 +6,7 @@
 
 ## Medium Article
 
-This project is accompanied by a comprehensive Medium article that details the process of integrating UI Tests into a Todo App using Android Compose. You can read the article [here]().
+This project is accompanied by a comprehensive Medium article that details the process of integrating UI Tests into a Todo App using Android Compose. You can read the article [here](https://medium.com/@kenruizinoue/android-compose-tutorial-todo-app-with-ui-testing-af1a68db6925).
 
 ## Overview
 
