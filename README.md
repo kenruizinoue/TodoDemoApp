@@ -6,17 +6,19 @@
 
 ## Medium Article
 
-This project is accompanied by a comprehensive Medium article that details the process of integrating Room Database into a Todo App using Android Compose. You can read the article [here](https://medium.com/@kenruizinoue/intermediate-android-compose-todo-app-with-room-database-18fd97436c6d).
+This project is accompanied by a comprehensive Medium article that details the process of integrating UI Tests into a Todo App using Android Compose. You can read the article [here]().
 
 ## Overview
 
-TodoDemoApp is an Android application built with Jetpack Compose and Room Database. It extends beyond basic UI implementation to include dynamic data storage and retrieval, showcasing the full spectrum of creating a functional and interactive Android application. This app is ideal for developers who want to understand how to combine Compose's interactive UI with Room Database's robust data management.
+TodoDemoApp is an Android application developed with Jetpack Compose and Room Database. This app demonstrates an advanced approach to Android app development, extending beyond basic UI implementation and dynamic data storage and retrieval. It's an excellent resource for developers looking to understand the integration of Compose's interactive UI with Room Database's robust data management, along with a comprehensive introduction to UI testing in Android.
 
-Key aspects of the app include:
+Key aspects of the project include:
 
-- Integration of Room Database for persistent data storage.
-- Implementation of ViewModel to manage UI-related data in a lifecycle-conscious way.
-- Usage of Kotlin coroutines Flow for efficient and responsive database operations.
+- Integration of Room Database for Persistent Data Storage: The app uses Room Database to ensure robust data persistence, which is crucial for maintaining app state during unexpected closures and system interruptions.
+- Implementation of ViewModel: The ViewModel is used to manage UI-related data in a lifecycle-conscious way, ensuring data persistence across configuration changes.
+- Usage of Kotlin Coroutines Flow: Kotlin coroutines Flow is employed for efficient and responsive database operations, making the app reactive and user-friendly.
+- Comprehensive UI Testing with Android Compose: The app includes detailed implementation of UI tests using Android Compose. This section provides a step-by-step guide on how to write and run UI tests, ensuring the app's functionality and reliability. It covers various testing scenarios like adding, toggling, and deleting todo items, dealing with todo lists and dynamic content.
+- Strategic Use of Test Tags and Content Descriptions in Compose: The project demonstrates the use of test tags and content descriptions within Compose to identify and interact with UI components in a testing environment.
 
 ## Getting Started
 
