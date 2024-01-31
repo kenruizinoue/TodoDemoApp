@@ -18,11 +18,9 @@ import kotlinx.coroutines.Dispatchers
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 1. Manual DB Creation
         val db = Room
             .databaseBuilder(applicationContext, AppDatabase::class.java, "todo-db")
             .build()
-        // 2. Manual MainViewModel Creation
         val mainViewModel = MainViewModel(TodoRepository(db.todoDao()), ioDispatcher = Dispatchers.IO)
         setContent {
             Box(
@@ -30,7 +28,6 @@ class MainActivity : ComponentActivity() {
             ) {
                 TodoItemsContainer(
                     todoItemsFlow = mainViewModel.todos,
-                    // 3. Method Reference Expression
                     onItemClick = mainViewModel::toggleTodo,
                     onItemDelete = mainViewModel::removeTodo,
                     overlappingElementsHeight = OverlappingHeight

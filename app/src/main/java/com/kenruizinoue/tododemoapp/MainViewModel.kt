@@ -8,15 +8,12 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    // 1. ViewModel Initialization
     private val repository: TodoRepository,
     private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
-    // 2. Todo Data Flow
     val todos = repository.allTodos
 
-    // 3. Todo Operations
     fun addTodo(todo: String) =
         viewModelScope.launch(ioDispatcher) { repository.insert(TodoItem(title = todo)) }
 

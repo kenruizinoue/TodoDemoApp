@@ -26,15 +26,12 @@ fun TodoItemsContainer(
     onItemDelete: (TodoItem) -> Unit = {},
     overlappingElementsHeight: Dp = 0.dp
 ) {
-    // 1. Flow Data Collection
     val todos = todoItemsFlow.collectAsState(initial = listOf()).value
-    // 2. LazyColumn Setup
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(MediumDp),
         verticalArrangement = Arrangement.spacedBy(MediumDp)
     ) {
-        // 3. Items Rendering
         items(todos, key = { it.id }) { item ->
             TodoItemUi(
                 todoItem = item,
@@ -42,7 +39,6 @@ fun TodoItemsContainer(
                 onItemDelete = onItemDelete
             )
         }
-        // 4. Layout Adjustment
         item { Spacer(modifier = Modifier.height(overlappingElementsHeight)) }
     }
 }

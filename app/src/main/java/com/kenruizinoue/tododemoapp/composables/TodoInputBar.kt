@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,17 +24,14 @@ fun TodoInputBar(
     modifier: Modifier = Modifier,
     onAddButtonClick: (String) -> Unit = {}
 ) {
-    // 1. State Management
     val input = remember { mutableStateOf("") }
 
     Card(
-        // 2. Shape Customization
         shape = RoundedCornerShape(size = MediumDp),
         modifier = modifier
             .padding(MediumDp)
             .height(TodoInputBarHeight)
             .fillMaxWidth(),
-        // 3. Elevation for Depth
         elevation = CardDefaults.cardElevation(defaultElevation = LargeDp),
     ) {
         Row(
@@ -43,11 +41,11 @@ fun TodoInputBar(
             verticalAlignment = Alignment.CenterVertically
         ) {
             TextField(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .testTag(TODO_INPUT_BAR_INPUT_FIELD_TEST_TAG),
                 textStyle = TodoInputBarTextStyle,
-                // 4. Data Binding
                 value = input.value,
-                // 5. Event Handling
                 onValueChange = { newText -> input.value = newText },
                 placeholder = {
                     Text(
@@ -72,14 +70,14 @@ fun TodoInputBar(
             FloatingActionButton(
                 containerColor = TodoInputBarFabColor,
                 onClick = {
-                    // 8. Task Submission Logic
                     if (input.value.isEmpty()) return@FloatingActionButton
                     onAddButtonClick(input.value)
                     input.value = ""
                 },
-                // 9. FAB Customization
                 shape = CircleShape,
-                modifier = Modifier.size(TodoInputBarFabSize),
+                modifier = Modifier
+                    .size(TodoInputBarFabSize)
+                    .testTag(TODO_INPUT_BAR_ADD_TODO_FAB_TEST_TAG),
                 elevation = FloatingActionButtonDefaults.elevation(
                     defaultElevation = 0.dp,
                     pressedElevation = 0.dp

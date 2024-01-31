@@ -24,7 +24,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,18 +38,13 @@ import com.kenruizinoue.tododemoapp.ui.constants.*
 @Composable
 fun TodoItemUi(
     todoItem: TodoItem = TodoItem(title = "Todo Item"),
-    //  1. Lambda Function Parameters for Flexibility
     onItemClick: (TodoItem) -> Unit = {},
     onItemDelete: (TodoItem) -> Unit = {}
 ) {
-    // 2. Adaptive Color Scheme
     val backgroundColor = if (todoItem.isDone) TodoItemBackgroundColor.copy(alpha = 0.5f) else TodoItemBackgroundColor
     val textColor = if (todoItem.isDone) TodoItemTextColor.copy(alpha = 0.5f) else TodoItemTextColor
-
-    // 3. Text Decoration
     val textDecoration = if (todoItem.isDone) TextDecoration.LineThrough else null
 
-    // 4. Dynamic Icons
     val iconId = if (todoItem.isDone) R.drawable.ic_selected_check_box else R.drawable.ic_empty_check_box
     val iconColorFilter = if (todoItem.isDone) ColorFilter.tint(TodoItemIconColor.copy(alpha = 0.5f)) else ColorFilter.tint(TodoItemIconColor)
     val iconTintColor = if (todoItem.isDone) TodoItemIconColor.copy(alpha = 0.5f) else TodoItemIconColor
@@ -60,9 +58,14 @@ fun TodoItemUi(
     ) {
         Row(
             modifier = Modifier
+                .testTag(TODO_ITEM_UI_CONTAINER_TEST_TAG)
+                .semantics {
+                    contentDescription =
+                        if (todoItem.isDone) TODO_ITEM_UI_CONTAINER_CHECKED_CONTENT_DESCRIPTION
+                        else TODO_ITEM_UI_CONTAINER_UNCHECKED_CONTENT_DESCRIPTION
+                }
                 .fillMaxSize()
                 .background(backgroundColor)
-                // 5. Clickable Modifier with Ripple Effect:
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = rememberRipple(bounded = true)
@@ -85,10 +88,11 @@ fun TodoItemUi(
                 overflow = TextOverflow.Ellipsis,
                 textDecoration = textDecoration
             )
-            // 6. IconButton for Deletion
             IconButton(
                 onClick = { onItemDelete(todoItem) },
-                modifier = Modifier.size(TodoItemActionButtonRippleRadius)
+                modifier = Modifier
+                    .size(TodoItemActionButtonRippleRadius)
+                    .testTag(TODO_ITEM_UI_DELETE_BUTTON_TEST_TAG)
             ) {
                 Icon(
                     modifier = Modifier.size(TodoItemIconSize),
