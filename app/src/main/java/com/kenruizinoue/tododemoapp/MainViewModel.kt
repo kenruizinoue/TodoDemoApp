@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenruizinoue.tododemoapp.data.TodoItem
 import com.kenruizinoue.tododemoapp.data.TodoRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val repository: TodoRepository,
     private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {

@@ -16,13 +16,19 @@ import com.kenruizinoue.tododemoapp.ui.constants.TODO_ITEM_UI_CONTAINER_CHECKED_
 import com.kenruizinoue.tododemoapp.ui.constants.TODO_ITEM_UI_CONTAINER_TEST_TAG
 import com.kenruizinoue.tododemoapp.ui.constants.TODO_ITEM_UI_CONTAINER_UNCHECKED_CONTENT_DESCRIPTION
 import com.kenruizinoue.tododemoapp.ui.constants.TODO_ITEM_UI_DELETE_BUTTON_TEST_TAG
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Rule
 import org.junit.Test
 
+@HiltAndroidTest
 class MainActivityTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @Test
     fun shouldDisplayAddedTodoItem() {
